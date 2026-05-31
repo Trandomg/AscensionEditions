@@ -56,12 +56,18 @@ public class AscensionEditions
                               if (cardData.ContainsKey(hash.ToString()))
                               {
                                    data += hash + "," + int.Max(serializableRun.Ascension, cardData[hash.ToString()]) + "\n";
+                                   cardData.Remove(hash.ToString());
                               }
                               else
                               {
                                    data += hash + "," + serializableRun.Ascension + "\n";
                               }
                          }
+                    }
+
+                    foreach (string key in cardData.Keys)
+                    {
+                         data += key + "," + cardData[key] + '\n';
                     }
                     File.WriteAllText("mods\\AscensionEditions\\" + SaveManager.Instance.CurrentProfileId + "\\card.data", data);
                     AscensionEditionsFileManager.LoadData();
@@ -84,16 +90,16 @@ public class AscensionEditions
                     {
                          ApplyShader(__instance, "_portrait");
                          ApplyShader(__instance, "_portraitBorder");
-                         ApplyShader(__instance, "_banner");
-                         ApplyShader(__instance, "_ancientPortrait");                         
+                         //ApplyShader(__instance, "_banner");
+                         ApplyShader(__instance, "_ancientPortrait");                      
                     }
                }
           }
 
           private static void ApplyShader(NCard __instance, string fieldName)
           {
-               var portrait = Traverse.Create(__instance).Field(fieldName).GetValue<TextureRect>();
-               if (portrait == null)
+               var textRect = Traverse.Create(__instance).Field(fieldName).GetValue<TextureRect>();
+               if (textRect == null)
                {
                     return;
                }
@@ -102,7 +108,7 @@ public class AscensionEditions
                shaderMaterial.Shader = shaderHolo;
         
                ShaderMaterial material = new() { Shader = shaderHolo };
-               portrait.Material = material;
+               textRect.Material = material;
 
           }
      }

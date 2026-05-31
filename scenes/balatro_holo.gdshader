@@ -51,7 +51,7 @@ void fragment() {
     vec4 hsl = HSL(0.5*tex + 0.5*vec4(0.,0.,1.,tex.a));
 
 	float t = TIME*8.221;
-	vec2 floored_uv = UV;// (floor((uv*texture_details.ba)))/texture_details.ba;
+	vec2 floored_uv = UV*5.0;// (floor((uv*texture_details.ba)))/texture_details.ba;
     vec2 uv_scaled_centered = (floored_uv - 0.5) * 250.;
 
 	vec2 field_part1 = uv_scaled_centered + 50.*vec2(sin(-t / 143.6340), cos(-t / 99.4324));
