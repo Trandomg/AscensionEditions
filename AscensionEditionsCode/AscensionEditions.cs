@@ -90,8 +90,7 @@ public class AscensionEditions
                     {
                          ApplyShader(__instance, "_portrait");
                          ApplyShader(__instance, "_portraitBorder");
-                         //ApplyShader(__instance, "_banner");
-                         ApplyShader(__instance, "_ancientPortrait");                      
+                         ApplyShader(__instance, "_ancientPortrait");
                     }
                }
           }

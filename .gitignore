@@ -10,3 +10,8 @@ packages/
 .editorconfig
 *cs.uid
 *.user
+/export_presets.cfg
+/scenes/holographic.tscn
+/nuget.config
+/scenes/Screenshot 2026-05-24 190604.png
+/scenes/Screenshot 2026-05-24 190604.png.import

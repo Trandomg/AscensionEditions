@@ -77,10 +77,17 @@ void fragment() {
 
     tex =(1.-delta)*tex + delta*RGB(hsl)*vec4(0.9,0.8,1.2,tex.a);
 
+
 	if (tex[3] < 0.7)
 		tex[3] = tex[3]/3.;
 
+	vec3 white_map = (1.0-vec3(smoothstep((0),length(COLOR.rgb),(0.6))))*2.0;
+	vec3 shifting_color = vec3(clamp(fract(sin(exp(UV*3.0)+TIME)/2.0+0.5),0.2,1.0),0.5);
+	float shifting_white = (-abs(sin(2.0*UV.x+UV.y+TIME))+1.0);
+
+	COLOR.rgb = mix(COLOR.rgb,tex.rgb,(white_map*shifting_white)/2.0);
     COLOR += tex;
+	//COLOR.rgb = shifting_color;
 }
 
 
