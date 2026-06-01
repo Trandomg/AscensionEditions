@@ -1,6 +1,7 @@
 ## Ascension Editions
 A Slay the Spire 2 mod that changes your cards' appearance.  
 Cards gain a holographic effect upon clearing the final boss on Ascension 10 with it in your deck.  
+This mod __WILL NOT__ work retroactively! Cards you have won with __before__ installing this mod will not be holographic.
 
 <br> 
 
