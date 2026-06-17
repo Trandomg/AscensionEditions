@@ -88,10 +88,13 @@ public class AscensionEditions
                {
                     if (cardData[cardName] == 10)
                     {
+                         
+
                          ApplyShader(__instance, "_portrait");
                          ApplyShader(__instance, "_portraitBorder");
                          ApplyShader(__instance, "_ancientPortrait");
                     }
+                    
                }
           }
 
@@ -103,6 +106,10 @@ public class AscensionEditions
                     return;
                }
                Shader shaderHolo = GD.Load<Shader>("scenes/balatro_holo.gdshader");
+               if (__instance.Model.IsUpgraded)
+               {
+                    shaderHolo = GD.Load<Shader>("scenes/balatro_poly.gdshader");
+               }
                ShaderMaterial shaderMaterial = new ShaderMaterial();
                shaderMaterial.Shader = shaderHolo;
         
